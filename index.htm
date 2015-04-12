@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="bower_components/highlightjs/styles/idea.css">
+        <link rel="stylesheet" href="assets/yelp_reveal.css">
+        <link rel="stylesheet" href="assets/presentation.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="bower_components/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <img src="assets/pre-commit-darwin.png" style="float: left">
+                    <h2>Stop wasting time in code reviews</h2>
+                    <h3>An Introduction to pre-commit</h3>
+                </section>
+                <section>
+                    <h3>All too often in code reviews</h3>
+                    <ul>
+                        <li>Your indentation is off...</li>
+                        <li>This doesn't conform to pep8...</li>
+                        <li>Your imports are out of order...</li>
+                        <li>blah blah blah blah blah</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1 style="color: #c41200">Stop</h1>
+                </section>
+                <section>
+                    <h2>Tools</h2>
+                    <ul>
+                        <li>
+                            Linters
+                            <ul>
+                                <li>flake8, pylint, jshint, scss-lint, ...</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Fixers
+                            <ul>
+                                <li>autopep8, trailing whitespace, end-of-files, encoding markers, import reordering,...</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Solution!</h2>
+                </section>
+                <section>
+                    <h2>git hooks!</h2>
+                </section>
+                <section>
+                    <h2>Problems</h2>
+                    <ul>
+                        <li>Large hardcoded bash script</li>
+                        <li>System dependencies</li>
+                        <li>Locked to one language</li>
+                        <li>Consistency</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>pre-commit solves this!</h2>
+                </section>
+                <section>
+                    <code style="font-size: 2em">$ pip install pre-commit</code>
+                </section>
+                <section>
+                    Check in a <code style="color: #000">.pre-commit-config.yaml</code>
+                    <pre><code>-   repo: git@github.com:pre-commit/pre-commit-hooks
+    sha: v0.4.1
+    hooks:
+    -   id: trailing-whitespace
+    -   id: autopep8-wrapper
+    -   id: flake8
+-   repo: git@github.com:asottile/reorder_python_imports
+    sha: ea9fa14a757bb210d849de5af8f8ba2c9744027a
+    hooks:
+    -   id: reorder-python-imports
+-   repo: git://github.com/pre-commit/mirrors-jshint
+    sha: e86225836aadd058036f47a6de9b0ee0440476eb
+    hooks:
+    -   id: jshint
+</pre></code>
+                </section>
+                <section>
+                    <code style="font-size: 2em">$ pre-commit install</code>
+                </section>
+                <section>
+                    <img src="assets/demo.gif" width="100%" height="100%">
+                </section>
+                <section>
+                    <img src="assets/demo2.gif" width="100%" height="100%">
+                </section>
+                <section>
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Python (2+3), Ruby, Node Supported</li>
+                        <li>System binaries also still work</li>
+                        <li>Merge conflicts only check conflicted files</li>
+                        <li>Easy to add new linters</li>
+                        <li>And more!</li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="assets/pre-commit-darwin.png" style="float: left;">
+                    <h2>Thanks!</h2>
+                    <ul>
+                        <li><a href="http://pre-commit.com">pre-commit.com</a></li>
+                        <li><a href="https://github.com/asottile">github.com/asottile</a></li>
+                        <li><a href="http://yelp.com/careers">yelp.com/careers</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <span class="yelp-logo"></span>
+
+        <script src="bower_components/jquery/jquery.min.js"></script>
+        <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+        <script src="bower_components/highlightjs/highlight.pack.js"></script>
+        <script type="text/javascript">
+            Reveal.initialize({
+                history: true,
+                transition: 'linear',
+                keyboard: {
+                    39: 'next',
+                    37: 'prev'
+                }
+            });
+            hljs.initHighlightingOnLoad();
+        </script>
+    </body>
+
+</html>

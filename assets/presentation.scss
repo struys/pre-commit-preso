@@ -1,0 +1,17 @@
+.stack-table {
+  background-color: #f5f5f1;
+  border: 1px solid #333;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.stack-table li {
+  border-bottom: 1px solid #333;
+  list-style-type: none;
+  padding: .5em;
+  text-align: center;
+}
+
+.stack-table li:last-child {
+  border-bottom: 0;
+}
