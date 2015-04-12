@@ -1,5 +1,5 @@
-pre-commit-preso-2015
-=====================
+pre-commit-preso
+================
 
 A presentation about http://pre-commit.com
 
